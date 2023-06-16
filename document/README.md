@@ -1,4 +1,4 @@
-# 42 時間耐久 "Tuning the backend" Contest 2023
+# 42 時間耐久 "Tuning the backend" Contest 2023 6/16
 
 ## ディレクトリ構造
 
