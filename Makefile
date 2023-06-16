@@ -7,3 +7,8 @@ init	:
 mysql	:
 	@echo "mysqlのコンテナにアクセス"
 	docker exec -it mysql bash
+
+.PHONY: run
+run	:
+	@echo "スコアを計測"
+	bash run.sh
