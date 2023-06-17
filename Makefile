@@ -22,3 +22,7 @@ migrate	:
 bench	:
 	@echo "負荷試験 & 採点"
 	cd ./benchmarker && bash run_k6_and_score.sh
+
+.PHONY: score
+score	: migrate bench
+	@echo "リストア & マイグレーション & 負荷試験 & 採点"
