@@ -10,5 +10,15 @@ mysql	:
 
 .PHONY: run
 run	:
-	@echo "スコアを計測"
+	@echo "評価スクリプト(リストア・コンテナ再起動・マイグレーション・e2e テスト・負荷試験・採点)"
 	bash run.sh
+
+.PHONY: migrate
+migrate	:
+	@echo "リストア & マイグレーション"
+	cd ./benchmarker && bash restore_and_migration.sh
+
+.PHONY: bench
+bench	:
+	@echo "負荷試験 & 採点"
+	cd ./benchmarker && bash run_k6_and_score.sh
