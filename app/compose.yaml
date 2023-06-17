@@ -6,7 +6,7 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ../.da/tls:/etc/nginx/tls
     ports:
-      - 443:443
+      - 8444:443
   backend:
     container_name: backend
     init: true
@@ -22,6 +22,8 @@ services:
       dockerfile: Dockerfile
   mysql:
     container_name: mysql
+    image: percona
+    restart: always
     build:
       context: ./mysql
       dockerfile: Dockerfile
@@ -37,3 +39,13 @@ services:
       - ../volume/mysql:/var/lib/mysql
       - ./mysql/mysql_migration:/etc/mysql/mysql_migration
       - ./mysql/mysql.conf:/etc/mysql/conf.d/mysql.cnf
+  pmm-server:
+    image: percona/pmm-server:2
+    restart: always
+    ports:
+      - "8443:443"
+    volumes:
+      - "pmm-data:/srv"
+volumes:
+  mysql_data_dir:
+  pmm-data:
