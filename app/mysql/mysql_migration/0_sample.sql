@@ -20,12 +20,6 @@ ALTER TABLE match_group_member ADD INDEX user_id_index (user_id);
 
 CREATE INDEX idx_entry_date_kana ON user (entry_date, kana);
 
--- ALTER TABLE user ADD FULLTEXT INDEX goal_index_with_parser (goal) WITH PARSER ngram;
--- SELECT user_id FROM user WHERE MATCH(goal) AGAINST ('+常務' IN BOOLEAN MODE);
-
-
---227 
---SELECT加えたら280まで増えた
 -- -- FOREIGN KEY Constraints
 -- -- FOREIGN KEY Constraints for `user` table
 -- ALTER TABLE `user`
