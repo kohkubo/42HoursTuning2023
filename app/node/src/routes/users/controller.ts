@@ -30,7 +30,7 @@ usersRouter.get(
       }
       const path = userIcon.path;
       // 500px x 500pxでリサイズ
-      const data = execSync(`convert ${path} -resize 50x50! PNG:-`, {
+      const data = execSync(`convert ${path} -resize 500x500! PNG:-`, {
         shell: "/bin/bash",
       });
       res.status(200).json({
